@@ -1,0 +1,117 @@
+.section {
+  padding: clamp(4rem, 8vw, 8rem) clamp(1.25rem, 7vw, 7rem);
+  background: #f5f2eb;
+}
+.heading {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  align-items: end;
+  gap: 4rem;
+}
+.heading h2 {
+  margin-top: 1.3rem;
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+}
+.heading p {
+  max-width: 25rem;
+  margin-bottom: 1rem;
+  color: #686961;
+  line-height: 1.6;
+}
+.section ol {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-top: 4.5rem;
+  padding: 0;
+  background: #8e927f;
+  list-style: none;
+}
+.section li {
+  position: relative;
+  padding: 0 1.5rem 2rem;
+  background: #f5f2eb;
+}
+.stepImage {
+  position: relative;
+  aspect-ratio: 1.5;
+  margin: 0 -1.5rem 2rem;
+  overflow: hidden;
+}
+.stepImage img {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 450ms ease;
+}
+.section li:hover img {
+  transform: scale(1.04);
+}
+.section li span {
+  display: inline-grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  margin-bottom: 1.15rem;
+  border: 1px solid #8e927f;
+  border-radius: 50%;
+  color: #737b5b;
+  font-size: 0.55rem;
+}
+.section h3 {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 400;
+}
+.section li p {
+  max-width: 13rem;
+  margin-top: 0.55rem;
+  color: #75766f;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+@media (max-width: 750px) {
+  .heading {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .section ol {
+    grid-template-columns: 1fr;
+  }
+  .stepImage {
+    aspect-ratio: 1.8;
+  }
+  .section li p {
+    max-width: 22rem;
+  }
+}
+
+.heading {
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.65fr);
+}
+.heading h2 {
+  margin: 0;
+  font-size: clamp(2.9rem, 4.6vw, 5rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+.heading p {
+  line-height: 1.75;
+}
+.section h3 {
+  font-weight: 500;
+  line-height: 1.25;
+}
+@media (max-width: 750px) {
+  .heading {
+    grid-template-columns: 1fr;
+  }
+  .heading h2 {
+    font-size: clamp(2.75rem, 12vw, 4.25rem);
+  }
+}

@@ -1,0 +1,188 @@
+.section {
+  min-height: 100svh;
+  overflow: hidden;
+  color: #20211e;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(19rem, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  width: 100%;
+  min-height: 100svh;
+  padding: clamp(5.5rem, 8vw, 8rem) clamp(1.5rem, 6vw, 6.5rem)
+    clamp(2rem, 4vw, 4rem);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.copy h2 {
+  max-width: 38rem;
+  font-family: var(--font-serif);
+  font-size: clamp(2.65rem, 3.65vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.05em;
+}
+
+.titleLine {
+  display: block;
+  white-space: nowrap;
+}
+
+.intro {
+  max-width: 27rem;
+  margin-top: clamp(1.5rem, 3.5vh, 2.75rem);
+  color: #62635d;
+  font-size: clamp(1rem, 1.35vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.75;
+}
+
+.stage {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: #8f8d84;
+  isolation: isolate;
+}
+
+.card {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  color: white;
+  will-change: clip-path, transform;
+}
+
+.card img {
+  object-fit: cover;
+  object-position: center;
+  will-change: transform;
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgb(12 13 11 / 16%) 0%,
+    transparent 42%,
+    rgb(12 13 11 / 72%) 100%
+  );
+}
+
+.cardCopy {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(1.5rem, 3.5vw, 3.5rem);
+}
+
+.cardCopy > span {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.cardCopy strong {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 4.75rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.cardCopy small {
+  max-width: 25rem;
+  color: rgb(255 255 255 / 76%);
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: minmax(17rem, 0.8fr) minmax(0, 1.2fr);
+    gap: 2rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+
+  .copy h2 {
+    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    overflow: visible;
+  }
+
+  .inner {
+    display: block;
+    min-height: auto;
+    padding: 5rem 1.25rem;
+  }
+
+  .copy h2 {
+    font-size: clamp(2.25rem, 10vw, 3.4rem);
+  }
+
+  .intro {
+    margin-top: 1.5rem;
+  }
+
+  .stage {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 3rem;
+    overflow: visible;
+    background: transparent;
+  }
+
+  .card {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 0.82;
+  }
+
+  .cardCopy {
+    padding: 1.25rem;
+  }
+
+  .cardCopy strong {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+  .cardCopy small {
+    max-width: 15rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (min-width: 768px) {
+  .inner {
+    min-height: auto;
+  }
+
+  .stage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    background: transparent;
+  }
+
+  .card {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 0.82;
+  }
+}

@@ -1,49 +1,83 @@
+@font-face {
+  font-family: "adelora";
+  src: url("/fonts/adelora.otf") format("opentype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f2eb;
+  --foreground: #20211e;
+  --font-sans: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
+  --font-serif:
+    adelora, "adelora Fallback", Georgia, "Times New Roman", serif;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html {
-  height: 100%;
+  background: var(--background);
+  scroll-behavior: smooth;
 }
-
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
 }
-
 body {
   min-height: 100%;
-  display: flex;
-  flex-direction: column;
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
-
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
-
 a {
   color: inherit;
   text-decoration: none;
 }
-
-@media (prefers-color-scheme: dark) {
+button,
+input {
+  font: inherit;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  text-transform: capitalize;
+}
+em {
+  font-style: italic;
+}
+.kicker {
+  color: #737b5b;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.kicker.light {
+  color: rgb(255 255 255 / 62%);
+}
+::selection {
+  background: #737b5b;
+  color: white;
+}
+@media (prefers-reduced-motion: reduce) {
   html {
-    color-scheme: dark;
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

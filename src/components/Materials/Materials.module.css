@@ -1,0 +1,113 @@
+.section {
+  display: grid;
+  grid-template-columns: 0.85fr 1.5fr;
+  min-height: 42rem;
+  padding: 5% 0;
+ 
+}
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(3rem, 6vw, 6rem);
+}
+.copy h2 {
+  margin: 1.4rem 0 1.75rem;
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 4vw, 4.7rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+.copy p {
+  margin-bottom: 1.8rem;
+  color: #65665f;
+  font-size: clamp(1rem, 1.35vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.65;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1px;
+  background: #f5f2eb;
+}
+.gallery figure {
+  position: relative;
+  min-height: 15rem;
+  overflow: hidden;
+  background: #ddd;
+}
+.gallery .featured {
+  grid-row: 1/3;
+  min-height: 32rem;
+}
+.gallery img {
+  object-fit: cover;
+  object-position: center;
+  transition: transform 500ms ease;
+}
+.gallery figure:hover img {
+  transform: scale(1.04);
+}
+.gallery figcaption {
+  position: absolute;
+  z-index: 1;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.5rem 0.65rem;
+  background: rgb(20 20 18 / 68%);
+  color: white;
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+}
+@media (max-width: 900px) {
+  .section {
+    grid-template-columns: 1fr;
+  }
+  .gallery {
+    min-height: 38rem;
+  }
+}
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 20rem 12rem 12rem;
+  }
+  .gallery .featured {
+    grid-column: 1/-1;
+    grid-row: auto;
+    min-height: 20rem;
+  }
+}
+
+.section {
+  grid-template-columns: minmax(24rem, 1fr) 1.65fr;
+}
+.copy {
+  padding: clamp(3.5rem, 5vw, 6rem);
+}
+.copy h2 {
+  margin: 0 0 2rem;
+  font-size: clamp(2.65rem, 3.45vw, 4rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+.copy p {
+  max-width: 31rem;
+  line-height: 1.75;
+}
+@media (max-width: 900px) {
+  .section {
+    grid-template-columns: 1fr;
+  }
+  .copy h2 {
+    font-size: clamp(2.7rem, 10vw, 4rem);
+  }
+}

@@ -1,0 +1,210 @@
+.header {
+  position: fixed;
+  z-index: 1250;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.75rem clamp(1.25rem, 4vw, 4.5rem);
+  color: white;
+  mix-blend-mode: difference;
+}
+
+.menuOpen {
+  color: #ffffff;
+  mix-blend-mode: normal;
+}
+
+.logo {
+  position: relative;
+  z-index: 52;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: inherit;
+  padding-left: calc(clamp(2.6rem, 4vw, 3.25rem) + 0.7rem);
+}
+
+.logoMark {
+  position: fixed;
+  z-index: 1251;
+  top: 1.75rem;
+  left: clamp(1.25rem, 4vw, 4.5rem);
+  width: clamp(2.6rem, 4vw, 3.25rem);
+  height: clamp(2.6rem, 4vw, 3.25rem);
+  pointer-events: none;
+}
+
+.logoMark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  line-height: 1;
+}
+
+.brandText strong {
+  font-size: clamp(1rem, 1.8vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.brandText small {
+  margin-top: 0.38rem;
+  font-size: clamp(0.32rem, 0.48vw, 0.45rem);
+  font-weight: 650;
+  letter-spacing: 0.2em;
+}
+
+.menuButton {
+  position: relative;
+  z-index: 52;
+  width: 3.25rem;
+  height: 3.25rem;
+  border: 1px solid rgb(255 255 255 / 48%);
+  border-radius: 50%;
+  background: white;
+  color: black;
+  cursor: pointer;
+  transition: border-color 220ms ease;
+}
+
+.menuOpen .menuButton {
+  border-color: rgb(255 255 255 / 48%);
+  background: transparent;
+  color: white;
+}
+
+.menuButton span {
+  position: absolute;
+  left: 50%;
+  width: 1.05rem;
+  height: 1px;
+  background: currentColor;
+  transform: translateX(-50%);
+  transition:
+    transform 260ms ease,
+    top 260ms ease;
+}
+
+.menuButton span:first-child {
+  top: 1.35rem;
+}
+.menuButton span:last-child {
+  top: 1.8rem;
+}
+.active span:first-child {
+  top: 1.58rem;
+  transform: translateX(-50%) rotate(45deg);
+}
+.active span:last-child {
+  top: 1.58rem;
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+.overlay {
+  position: fixed;
+  z-index: 51;
+  inset: 0;
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.55fr) 1fr;
+  align-items: center;
+  padding: 8rem clamp(1.5rem, 7vw, 8rem) 3rem;
+  background: #20211e;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-1.5rem);
+  transition:
+    opacity 260ms ease,
+    transform 380ms cubic-bezier(0.2, 0.75, 0.2, 1),
+    visibility 260ms;
+}
+
+.open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+.menuMeta {
+  align-self: start;
+  color: #9ba184;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+}
+.nav a {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  padding: 0.25rem 0;
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 5vw, 5rem);
+  line-height: 1.02;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+.nav a span {
+  width: 1.5rem;
+  color: #7e846d;
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+}
+.nav a:hover {
+  color: #b9c29a;
+  transform: translateX(0.5rem);
+}
+.menuFooter {
+  align-self: end;
+  color: rgb(255 255 255 / 54%);
+  font-size: 0.75rem;
+}
+
+@media (max-width: 650px) {
+  .header {
+    padding-top: 1.25rem;
+  }
+  .logoMark {
+    top: 1.25rem;
+  }
+  .logo {
+    gap: 0.5rem;
+  }
+  .brandText small {
+    letter-spacing: 0.13em;
+  }
+  .overlay {
+    grid-template-columns: 1fr;
+    align-content: center;
+    padding-top: 7rem;
+  }
+  .menuMeta {
+    display: none;
+  }
+  .nav a {
+    font-size: clamp(2.4rem, 13vw, 4rem);
+  }
+  .menuFooter {
+    margin-top: 3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .menuButton span,
+  .nav a {
+    transition: none;
+  }
+}

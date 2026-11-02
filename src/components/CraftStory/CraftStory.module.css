@@ -1,0 +1,133 @@
+.section {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #24241f;
+  color: white;
+  isolation: isolate;
+}
+
+.background {
+  z-index: -3;
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(12 12 10 / 58%), rgb(12 12 10 / 70%)),
+    radial-gradient(circle at center, transparent, rgb(12 12 10 / 24%));
+}
+
+.inner {
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding: clamp(2rem, 6vw, 7rem);
+}
+
+.copyStage {
+  position: relative;
+  width: min(70rem, 100%);
+  min-height: 24rem;
+  perspective: 1100px;
+}
+
+.copyItem {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  backface-visibility: hidden;
+  transform-origin: 50% 50%;
+  will-change: transform, opacity;
+}
+
+.copyItem:not(:first-child) {
+  opacity: 0;
+}
+
+.copyItem h2 {
+  margin: 0 0 1.5rem;
+  color: #d0a545;
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 4vw, 4.75rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+}
+
+.copyItem p {
+  max-width: 42rem;
+  color: rgb(255 255 255 / 78%);
+  font-size: clamp(1rem, 1.35vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.55;
+  text-wrap: balance;
+}
+
+@media (max-width: 767px) {
+  .section {
+    min-height: auto;
+    overflow: hidden;
+  }
+
+  .inner {
+    min-height: auto;
+    padding: 5rem 1.25rem;
+  }
+
+  .copyStage {
+    display: grid;
+    gap: 4.5rem;
+    min-height: auto;
+  }
+
+  .copyItem {
+    position: relative;
+    inset: auto;
+    min-height: 55svh;
+    padding: 2rem 0;
+    border-top: 1px solid rgb(255 255 255 / 20%);
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
+
+  .copyItem h2 {
+    font-size: clamp(2.8rem, 12vw, 4rem);
+  }
+
+  .copyItem p {
+    max-width: 31rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (min-width: 768px) {
+  .section,
+  .inner {
+    min-height: auto;
+  }
+
+  .copyStage {
+    display: grid;
+    gap: 3rem;
+    min-height: auto;
+    padding: 6rem 0;
+  }
+
+  .copyItem {
+    position: relative;
+    inset: auto;
+    min-height: 45svh;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,84 @@
+.section {
+  padding: clamp(4.5rem, 9vw, 9rem) clamp(1.25rem, 7vw, 7rem);
+  background: #f5f2eb;
+}
+.heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+.heading h2 {
+  margin-top: 1.3rem;
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 2.5rem 1rem;
+}
+.card > div {
+  position: relative;
+  aspect-ratio: 2.15;
+  overflow: hidden;
+  background: #ddd;
+}
+.card:nth-child(1) > div,
+.card:nth-child(4) > div {
+  aspect-ratio: 1.75;
+}
+.card img {
+  object-fit: cover;
+  object-position: center;
+  transition:
+    filter 250ms ease,
+    transform 500ms ease;
+}
+.card:hover img {
+  filter: brightness(0.82);
+  transform: scale(1.035);
+}
+.card h3 {
+  margin-top: 1rem;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+.card p {
+  margin-top: 0.25rem;
+  color: #77776f;
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  line-height: 1.5;
+}
+@media (max-width: 720px) {
+  .heading {
+    align-items: start;
+    flex-direction: column;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .card > div,
+  .card:nth-child(1) > div,
+  .card:nth-child(4) > div {
+    aspect-ratio: 1.65;
+  }
+}
+
+.heading h2 {
+  margin: 0;
+  font-size: clamp(2.9rem, 4.6vw, 5rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+.card h3 {
+  font-weight: 500;
+  line-height: 1.25;
+}
