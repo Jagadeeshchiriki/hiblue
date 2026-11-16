@@ -1,5 +1,5 @@
 import Image from "next/image";
-import interiorImage from "../../../public/images/home/service-interior-design.png";
+import manufacturingImage from "../../../public/images/home/philosophy-manufacturing.png";
 import styles from "./Philosophy.module.css";
 
 export default function Philosophy() {
@@ -7,35 +7,29 @@ export default function Philosophy() {
     <section
       className={styles.section}
       aria-labelledby="philosophy-title"
-      data-reveal
+      data-philosophy
       data-header-theme="light"
     >
-      <div className={styles.copy}>
+      <div className={styles.copy} data-philosophy-copy>
         <h2 id="philosophy-title">
-          More than a space.
+          Engineered to Build.
           <br />
-          <em>A feeling.</em>
+          <em>Crafted to Last.</em>
         </h2>
         <p>
-          We create interiors that go beyond aesthetics—thoughtful spaces shaped
-          around your lifestyle, with quality materials and precise execution.
+          From cutting and edge banding to assembly and finishing, our skilled
+          team combines modern machinery and craftsmanship to turn client-provided
+          designs into high-quality modular solutions.
         </p>
       </div>
-      <div className={styles.image}>
+      <div className={styles.image} data-philosophy-image>
         <Image
-          src={interiorImage}
-          alt="Warm contemporary dining space"
+          src={manufacturingImage}
+          alt="Skilled craftspeople manufacturing modular furniture in a modern workshop"
           fill
-          sizes="(max-width: 800px) 100vw, 57vw"
+          sizes="100vw"
           data-parallax
         />
-        <span>
-          Spaces
-          <br />
-          people love
-          <br />
-          to live in
-        </span>
       </div>
     </section>
   );

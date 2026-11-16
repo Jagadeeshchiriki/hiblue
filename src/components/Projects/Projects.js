@@ -19,12 +19,10 @@ export default function Projects() {
       data-reveal
     >
       <div className={styles.heading}>
-        <div>
-          <h2 id="projects-title">
-            Spaces with
-            <br />a point of view.
-          </h2>
-        </div>
+        <h2 id="projects-title">
+          Spaces with
+          <br />a point of view.
+        </h2>
       </div>
       <div className={styles.grid}>
         {projects.map(([title, category, src]) => (
@@ -37,8 +35,6 @@ export default function Projects() {
                 sizes="(max-width: 720px) 100vw, 50vw"
               />
             </div>
-            <h3>{title}</h3>
-            <p>{category}</p>
           </Link>
         ))}
       </div>

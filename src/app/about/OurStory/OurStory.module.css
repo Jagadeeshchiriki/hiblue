@@ -1,0 +1,124 @@
+.story {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(5rem, 9vw, 9rem) 0 clamp(6rem, 11vw, 11rem);
+  background: #f1eee6;
+  color: #172017;
+}
+
+.heading {
+  margin: 0 clamp(1.5rem, 5vw, 5rem) clamp(4rem, 7vw, 7rem);
+  font-size: clamp(3.2rem, 6.5vw, 7rem);
+  font-weight: 400;
+  line-height: 0.84;
+  letter-spacing: -0.06em;
+  text-transform: none;
+}
+
+.heading span {
+  display: block;
+  transform-origin: left bottom;
+}
+
+.heading span:last-child {
+  margin-left: clamp(0rem, 9vw, 10rem);
+}
+
+.heading em {
+  color: #67734f;
+  font-weight: 400;
+}
+
+.imageFrame {
+  position: relative;
+  height: min(72vw, 56rem);
+  min-height: 32rem;
+  overflow: hidden;
+  clip-path: inset(0 round 0);
+  background: #d9d4c8;
+}
+
+.image {
+  object-fit: cover;
+  will-change: transform;
+}
+
+.imageFrame::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 62%, rgb(9 13 10 / 56%));
+  content: "";
+  pointer-events: none;
+}
+
+.narrative {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(18rem, 0.72fr);
+  gap: clamp(4rem, 12vw, 14rem);
+  margin: 0 clamp(1.5rem, 8vw, 8rem);
+  padding: clamp(5rem, 9vw, 9rem) 0;
+}
+
+.lead {
+  max-width: 25ch;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.4vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.bodyCopy {
+  display: grid;
+  gap: 1.8rem;
+  align-content: end;
+  color: rgb(23 32 23 / 72%);
+  font-size: clamp(0.9rem, 1.05vw, 1.05rem);
+  line-height: 1.75;
+}
+
+.statement {
+  margin: clamp(5rem, 10vw, 10rem) clamp(1.5rem, 5vw, 5rem) 0;
+}
+
+.statement blockquote {
+  max-width: 24ch;
+  margin-left: auto;
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4.4vw, 5.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.statement blockquote em {
+  color: #67734f;
+  font-weight: 400;
+}
+
+@media (max-width: 800px) {
+  .heading {
+    font-size: clamp(2.8rem, 11vw, 4.8rem);
+    line-height: 0.9;
+  }
+
+  .heading span:last-child {
+    margin-top: 0.25rem;
+    margin-left: 0;
+  }
+
+  .imageFrame {
+    height: 70svh;
+    min-height: 30rem;
+  }
+
+  .narrative {
+    grid-template-columns: 1fr;
+  }
+
+  .narrative {
+    gap: 3rem;
+  }
+
+  .statement blockquote {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,188 @@
+.section {
+  position: relative;
+  z-index: 2;
+  min-height: 100svh;
+  overflow: hidden;
+  color: black;
+}
+
+.shell {
+  min-height: 100svh;
+  padding: clamp(2rem, 5vw, 5rem) clamp(1.5rem, 6vw, 7rem);
+}
+
+.stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(22rem, 0.95fr);
+  align-items: center;
+  gap: clamp(3rem, 8vw, 9rem);
+  min-height: calc(100svh - clamp(4rem, 10vw, 10rem));
+}
+
+.imageStack {
+  position: relative;
+  width: min(100%, 46rem);
+  aspect-ratio: 4 / 3;
+  justify-self: center;
+  perspective: 1200px;
+}
+
+.imageCard {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #ebe5dc;
+  border: clamp(0.45rem, 0.75vw, 0.75rem) solid #fff;
+  border-radius: clamp(0.9rem, 1.5vw, 1.5rem);
+  box-shadow: 0 1.6rem 3.5rem rgb(37 31 24 / 22%);
+  backface-visibility: hidden;
+  transform-origin: 50% 80%;
+  will-change: transform, opacity;
+}
+
+.imageCard img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.copyStage {
+  position: relative;
+  min-height: min(34rem, 62vh);
+}
+
+.copyItems {
+  position: absolute;
+  inset: 0;
+}
+
+.copyItem {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  will-change: transform, opacity, filter;
+}
+
+.copyItem:not(:first-child) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.copyItem h3 {
+  max-width: 42rem;
+  font-family: var(--font-serif);
+  font-size: clamp(2.75rem, 4.2vw, 4.8rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.accent {
+  width: clamp(5.5rem, 10vw, 10rem);
+  height: 0.42rem;
+  margin-top: clamp(1.5rem, 3vh, 2.5rem);
+  border-radius: 999px;
+  background: #f2c600;
+}
+
+.copyItem p {
+  max-width: 40rem;
+  margin-top: clamp(1.35rem, 2.8vh, 2.25rem);
+  color: #263044;
+  font-size: clamp(1rem, 1.35vw, 1.35rem);
+  font-weight: 450;
+  line-height: 1.55;
+  text-wrap: balance;
+}
+
+@media (max-width: 800px) {
+  .shell {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .stage {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 46svh) minmax(13rem, 1fr);
+    gap: 1.5rem;
+    min-height: calc(100svh - 3rem);
+  }
+
+  .imageStack {
+    width: min(88vw, 34rem);
+    max-height: 43svh;
+  }
+
+  .copyStage {
+    gap: 1.2rem;
+    min-height: 13rem;
+  }
+
+  .copyItem h3 {
+    font-size: clamp(2.5rem, 9vw, 3.5rem);
+    line-height: 1.08;
+  }
+
+  .accent {
+    height: 0.28rem;
+    margin-top: 0.85rem;
+  }
+
+  .copyItem p {
+    margin-top: 0.85rem;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section,
+  .shell,
+  .stage {
+    min-height: auto;
+  }
+
+  .stage {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .imageStack {
+    display: grid;
+    gap: 1rem;
+    width: 100%;
+    max-height: none;
+    aspect-ratio: auto;
+  }
+
+  .imageCard {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 4 / 3;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  .copyStage {
+    min-height: auto;
+  }
+
+  .copyItems {
+    position: static;
+    display: grid;
+    gap: 2rem;
+  }
+
+  .copyItem {
+    position: relative;
+    inset: auto;
+    padding-top: 2rem;
+    border-top: 1px solid rgb(17 26 45 / 16%);
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

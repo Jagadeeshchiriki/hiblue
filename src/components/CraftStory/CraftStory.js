@@ -1,5 +1,5 @@
 import Image from "next/image";
-import backgroundImage from "../../../public/images/home/service-interior-design.png";
+import backgroundImage from "../../../public/images/machines/machine1.png";
 import styles from "./CraftStory.module.css";
 
 const story = [
@@ -35,6 +35,7 @@ export default function CraftStory() {
         alt="Refined completed living room interior"
         fill
         sizes="100vw"
+        loading="eager"
       />
       <span className={styles.overlay} aria-hidden="true" />
 

@@ -13,7 +13,7 @@
 }
 
 .menuOpen {
-  color: #ffffff;
+  color: var(--foreground);
   mix-blend-mode: normal;
 }
 
@@ -24,7 +24,7 @@
   align-items: center;
   gap: 0.7rem;
   color: inherit;
-  padding-left: calc(clamp(2.6rem, 4vw, 3.25rem) + 0.7rem);
+  padding-left: calc(clamp(3rem, 4.6vw, 3.75rem) + 0.8rem);
 }
 
 .logoMark {
@@ -32,9 +32,10 @@
   z-index: 1251;
   top: 1.75rem;
   left: clamp(1.25rem, 4vw, 4.5rem);
-  width: clamp(2.6rem, 4vw, 3.25rem);
-  height: clamp(2.6rem, 4vw, 3.25rem);
+  width: clamp(3rem, 4.6vw, 3.75rem);
+  height: clamp(3rem, 4.6vw, 3.75rem);
   pointer-events: none;
+  transform: translateY(-0.2rem);
 }
 
 .logoMark img {
@@ -48,20 +49,35 @@
   display: flex;
   flex-direction: column;
   color: inherit;
-  line-height: 1;
+  line-height: 1.05;
 }
 
 .brandText strong {
-  font-size: clamp(1rem, 1.8vw, 1.5rem);
-  font-weight: 800;
-  letter-spacing: 0.16em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.08em;
+  font-size: clamp(0.72rem, 1.15vw, 1rem);
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  line-height: 1.02;
 }
 
 .brandText small {
+  display: flex;
+  align-items: center;
+  gap: 0.42rem;
   margin-top: 0.38rem;
-  font-size: clamp(0.32rem, 0.48vw, 0.45rem);
-  font-weight: 650;
-  letter-spacing: 0.2em;
+  font-size: clamp(0.38rem, 0.55vw, 0.5rem);
+  font-weight: 450;
+  letter-spacing: 0.18em;
+  white-space: nowrap;
+}
+
+.brandText small i {
+  width: 1px;
+  height: 0.85rem;
+  background: currentColor;
+  opacity: 0.55;
 }
 
 .menuButton {
@@ -78,9 +94,9 @@
 }
 
 .menuOpen .menuButton {
-  border-color: rgb(255 255 255 / 48%);
+  border-color: rgb(32 33 30 / 38%);
   background: transparent;
-  color: white;
+  color: var(--foreground);
 }
 
 .menuButton span {
@@ -112,13 +128,14 @@
 
 .overlay {
   position: fixed;
-  z-index: 51;
+  z-index: 1249;
   inset: 0;
   display: grid;
-  grid-template-columns: minmax(12rem, 0.55fr) 1fr;
+  grid-template-columns: 1fr;
   align-items: center;
   padding: 8rem clamp(1.5rem, 7vw, 8rem) 3rem;
-  background: #20211e;
+  background: var(--background);
+  color: var(--foreground);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-1.5rem);
@@ -133,43 +150,114 @@
   visibility: visible;
   transform: none;
 }
-.menuMeta {
-  align-self: start;
-  color: #9ba184;
-  font-size: 0.65rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
 .nav {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
+  gap: clamp(1rem, 2.3vh, 1.75rem);
+  width: min(100%, 68rem);
+  justify-self: center;
+  isolation: isolate;
 }
-.nav a {
+.navLink {
+  position: relative;
   display: flex;
-  align-items: baseline;
-  gap: 1.25rem;
+  align-items: center;
   padding: 0.25rem 0;
   font-family: var(--font-serif);
-  font-size: clamp(2.25rem, 5vw, 5rem);
-  line-height: 1.02;
+  font-size: clamp(3rem, 7vw, 7.5rem);
+  color: var(--foreground);
+  line-height: 0.86;
   transition:
-    color 180ms ease,
-    transform 180ms ease;
+    transform 420ms cubic-bezier(0.2, 0.75, 0.2, 1);
 }
-.nav a span {
-  width: 1.5rem;
-  color: #7e846d;
-  font-family: var(--font-sans);
-  font-size: 0.55rem;
+
+.navLabel {
+  position: relative;
+  z-index: 2;
+  color: var(--foreground);
+  -webkit-text-fill-color: currentColor;
+  transition:
+    opacity 480ms ease,
+    transform 480ms ease;
 }
-.nav a:hover {
-  color: #b9c29a;
+
+.navLink:is(:hover, :focus-visible) {
   transform: translateX(0.5rem);
 }
-.menuFooter {
-  align-self: end;
-  color: rgb(255 255 255 / 54%);
-  font-size: 0.75rem;
+
+.navLink:is(:hover, :focus-visible) .navLabel {
+  opacity: 0.58;
+}
+
+.navLink:focus-visible {
+  outline: 1px solid rgb(32 33 30 / 48%);
+  outline-offset: 0.4rem;
+}
+
+.menuPreview {
+  --menu-image-x: 50vw;
+  --menu-image-y: 50vh;
+  position: fixed;
+  z-index: 1;
+  top: var(--menu-image-y);
+  left: var(--menu-image-x);
+  width: clamp(13rem, 24vw, 24rem);
+  aspect-ratio: 1.35;
+  overflow: visible;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition:
+    top 180ms cubic-bezier(0.2, 0.75, 0.2, 1),
+    left 180ms cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+
+.previewImage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 58%);
+  border-radius: clamp(0.7rem, 1.3vw, 1.15rem);
+  clip-path: inset(48% 0 48% 0 round clamp(0.7rem, 1.3vw, 1.15rem));
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 1.5rem 4rem rgb(28 27 22 / 20%);
+  transition:
+    clip-path 650ms cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 320ms ease,
+    visibility 0s linear 650ms;
+}
+
+.previewImage img {
+  object-fit: cover;
+  transform: scale(1.12);
+  transition: transform 900ms cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+
+.previewImage span {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.55rem;
+  color: white;
+  font-size: 0.55rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.previewImageActive {
+  z-index: 2;
+  clip-path: inset(0 0 0 0 round clamp(0.7rem, 1.3vw, 1.15rem));
+  opacity: 1;
+  visibility: visible;
+  transition:
+    clip-path 650ms cubic-bezier(0.76, 0, 0.24, 1),
+    opacity 320ms ease,
+    visibility 0s;
+}
+
+.previewImageActive img {
+  transform: scale(1);
 }
 
 @media (max-width: 650px) {
@@ -182,29 +270,39 @@
   .logo {
     gap: 0.5rem;
   }
+  .brandText strong {
+    font-size: 0.66rem;
+  }
   .brandText small {
-    letter-spacing: 0.13em;
+    gap: 0.28rem;
+    font-size: 0.31rem;
+    letter-spacing: 0.1em;
+  }
+  .brandText small i {
+    height: 0.65rem;
   }
   .overlay {
     grid-template-columns: 1fr;
     align-content: center;
     padding-top: 7rem;
   }
-  .menuMeta {
+  .navLink {
+    font-size: clamp(3.25rem, 15vw, 5rem);
+  }
+
+  .menuPreview {
     display: none;
-  }
-  .nav a {
-    font-size: clamp(2.4rem, 13vw, 4rem);
-  }
-  .menuFooter {
-    margin-top: 3rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .overlay,
   .menuButton span,
-  .nav a {
+  .navLink,
+  .navLabel,
+  .menuPreview,
+  .previewImage,
+  .previewImage img {
     transition: none;
   }
 }

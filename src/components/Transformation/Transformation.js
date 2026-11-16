@@ -19,7 +19,6 @@ export default function Transformation() {
             fill
             sizes="(max-width: 800px) 100vw, 68vw"
           />
-          <span>Concept</span>
         </div>
 
         <div className={styles.finished} data-transformation-finished>
@@ -29,7 +28,6 @@ export default function Transformation() {
             fill
             sizes="(max-width: 800px) 100vw, 68vw"
           />
-          <span>Finished</span>
         </div>
 
         <div className={styles.divider} data-transformation-divider>

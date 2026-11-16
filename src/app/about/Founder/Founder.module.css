@@ -1,0 +1,186 @@
+.founder {
+  position: relative;
+  padding: clamp(6rem, 11vw, 11rem) clamp(1.5rem, 5vw, 5rem);
+  overflow: hidden;
+  background: #172017;
+  color: #f4f0e7;
+}
+
+.founder::before {
+  position: absolute;
+  top: 0;
+  right: clamp(1.5rem, 5vw, 5rem);
+  left: clamp(1.5rem, 5vw, 5rem);
+  height: 1px;
+  background: rgb(255 255 255 / 16%);
+  content: "";
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.4fr) minmax(0, 1.6fr);
+  gap: clamp(2rem, 7vw, 8rem);
+  align-items: start;
+  margin-bottom: clamp(4rem, 8vw, 8rem);
+}
+
+.kicker {
+  padding-top: 0.7rem;
+  color: #a9b28c;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.heading {
+  max-width: 12ch;
+  margin: 0;
+  font-size: clamp(3.2rem, 6.5vw, 7.2rem);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+}
+
+.heading em {
+  color: #a9b28c;
+  font-weight: 400;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.03fr) minmax(20rem, 0.77fr);
+  gap: clamp(3.5rem, 9vw, 10rem);
+  align-items: center;
+}
+
+.portrait {
+  position: relative;
+  min-height: clamp(34rem, 57vw, 50rem);
+  margin: 0;
+  overflow: hidden;
+  background: #283026;
+}
+
+.portrait::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 62%, rgb(8 13 8 / 70%));
+  content: "";
+  pointer-events: none;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.72) contrast(1.04);
+}
+
+.caption {
+  position: absolute;
+  right: clamp(1.25rem, 2.5vw, 2.25rem);
+  bottom: clamp(1.25rem, 2.5vw, 2.25rem);
+  left: clamp(1.25rem, 2.5vw, 2.25rem);
+  display: flex;
+  z-index: 1;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgb(255 255 255 / 42%);
+  color: rgb(255 255 255 / 75%);
+  font-size: 0.64rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.message {
+  position: relative;
+  padding-top: clamp(2.5rem, 5vw, 5rem);
+}
+
+.quoteMark {
+  position: absolute;
+  top: -0.08em;
+  left: -0.08em;
+  color: rgb(169 178 140 / 24%);
+  font-family: var(--font-serif);
+  font-size: clamp(8rem, 15vw, 15rem);
+  line-height: 1;
+}
+
+.message blockquote {
+  position: relative;
+  max-width: 17ch;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.2vw, 3.65rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.copy {
+  display: grid;
+  gap: 1.4rem;
+  max-width: 35rem;
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+  color: rgb(244 240 231 / 64%);
+  font-size: clamp(0.9rem, 1vw, 1.04rem);
+  line-height: 1.78;
+}
+
+.signature {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.signatureLine {
+  width: clamp(2.5rem, 5vw, 4.5rem);
+  height: 1px;
+  background: #a9b28c;
+}
+
+.signature div {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.signature strong {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.signature div span {
+  color: rgb(244 240 231 / 46%);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: 800px) {
+  .intro,
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .intro {
+    gap: 1.5rem;
+  }
+
+  .heading {
+    font-size: clamp(3rem, 14vw, 5.4rem);
+  }
+
+  .content {
+    gap: 3.5rem;
+  }
+
+  .portrait {
+    min-height: 72svh;
+  }
+
+  .caption {
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+}

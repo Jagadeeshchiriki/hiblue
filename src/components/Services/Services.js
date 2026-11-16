@@ -1,28 +1,36 @@
 import Image from "next/image";
 import Link from "next/link";
-import designBuildImage from "../../../public/images/home/door-banner02.webp";
-import interiorDesignImage from "../../../public/images/home/service-interior-design1.png";
+import doorImage from "../../../public/images/home/door-banner02.webp";
+import doorRevealImage from "../../../public/images/home/04-service-design-build.jpg";
+import interiorImage from "../../../public/images/home/interior_1.jpg";
+import interiorRevealImage from "../../../public/images/home/interior_2.jpg";
 import kitchenImage from "../../../public/images/home/artisan-1.webp";
-import wardrobeImage from "../../../public/images/home/Wardrobe2.webp";
+import kitchenRevealImage from "../../../public/images/home/04-service-modular-kitchen.png";
+import wardrobeImage from "../../../public/images/home/Wardrobe.webp";
+import wardrobeRevealImage from "../../../public/images/home/Wardrobe2.webp";
 import styles from "./Services.module.css";
 
 const services = [
-  [
-    "Interior Design",
-    "Spaces composed around the way you live.",
-    interiorDesignImage,
-  ],
-  [
-    "Modular Kitchens",
-    "Beautifully planned for effortless everyday use.",
-    kitchenImage,
-  ],
-  [
-    "Custom Wardrobes",
-    "Tailored storage with a refined architectural finish.",
-    wardrobeImage,
-  ],
-  ["Doors", "The first detail that sets the tone for your home.", designBuildImage],
+  {
+    name: "Interior Design",
+    description: "Spaces composed around the way you live.",
+    images: [interiorImage, interiorRevealImage],
+  },
+  {
+    name: "Modular Kitchens",
+    description: "Beautifully planned for effortless everyday use.",
+    images: [kitchenImage, kitchenRevealImage],
+  },
+  {
+    name: "Custom Wardrobes",
+    description: "Tailored storage with a refined architectural finish.",
+    images: [wardrobeImage, wardrobeRevealImage],
+  },
+  {
+    name: "Doors",
+    description: "The first detail that sets the tone for your home.",
+    images: [doorImage, doorRevealImage],
+  },
 ];
 
 export default function Services() {
@@ -33,7 +41,7 @@ export default function Services() {
       aria-labelledby="services-title"
       data-services
     >
-      <div className={styles.inner}>
+      <div className={styles.inner} data-services-pin>
         <div className={styles.copy} data-services-copy>
           <h2 id="services-title">
             <span className={styles.titleLine}>Designed Around</span>
@@ -49,22 +57,33 @@ export default function Services() {
         </div>
 
         <div className={styles.stage} data-services-stage>
-          {services.map(([name, description, src], index) => (
+          <div className={styles.track} data-services-track>
+          {services.map(({ name, description, images }) => (
             <Link
               href="/services"
               className={styles.card}
               data-service-card
               key={name}
-              style={{ zIndex: index + 1 }}
               aria-label={`Explore ${name}`}
             >
-              <Image
-                src={src}
-                alt=""
-                fill
-                sizes="(max-width: 767px) 100vw, 62vw"
-                data-service-image
-              />
+              <span className={styles.imageFrame}>
+                <Image
+                  src={images[0]}
+                  alt=""
+                  fill
+                  sizes="(max-width: 767px) 84vw, 62vw"
+                  className={styles.baseImage}
+                />
+                <span className={styles.reveal} data-service-reveal>
+                  <Image
+                    src={images[1]}
+                    alt=""
+                    fill
+                    sizes="(max-width: 767px) 84vw, 62vw"
+                    data-service-image
+                  />
+                </span>
+              </span>
               <span className={styles.shade} aria-hidden="true" />
               <span className={styles.cardCopy}>
                 <span>
@@ -74,6 +93,7 @@ export default function Services() {
               </span>
             </Link>
           ))}
+          </div>
         </div>
       </div>
     </section>

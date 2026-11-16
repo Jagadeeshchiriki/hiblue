@@ -1,6 +1,8 @@
 import FinalCta from "@/components/FinalCta/FinalCta";
 import Footer from "@/components/Footer/Footer";
 import Hero from "@/components/Hero/Hero";
+import Hero2 from "@/components/Hero2/Hero2";
+import Expertise from "@/components/Expertise/Expertise";
 import Materials from "@/components/Materials/Materials";
 import Philosophy from "@/components/Philosophy/Philosophy";
 import Process from "@/components/Process/Process";
@@ -18,11 +20,13 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        {/* <Hero2 /> */}
+        <Expertise />
         <Philosophy />
         <Transformation />
         <Services />
         <CraftStory />
-        <Materials /> 
+        {/* <Materials />  */}
         <ImageDrift />
         <Projects />
         <FinalCta />
