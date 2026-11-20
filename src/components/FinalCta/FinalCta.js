@@ -4,7 +4,12 @@ import ArrowLink from "../shared/ArrowLink";
 import styles from "./FinalCta.module.css";
 export default function FinalCta() {
   return (
-    <section className={styles.section} aria-labelledby="cta-title" data-reveal>
+    <section
+      className={styles.section}
+      aria-labelledby="cta-title"
+      data-final-cta
+      data-reveal
+    >
       <Image
         className={styles.background}
         src={ctaImage}
@@ -17,7 +22,7 @@ export default function FinalCta() {
         <h2 id="cta-title">
           Let&apos;s create a space
           <br />
-          that feels like <em>yours.</em>
+          that feels like yours.
         </h2>
         <p>Start a conversation about your interior design project.</p>
         <ArrowLink href="/contact" light>

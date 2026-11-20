@@ -14,11 +14,13 @@ import Transformation from "@/components/Transformation/Transformation";
 import Trust from "@/components/Trust/Trust";
 import ScrollAnimations from "@/components/ScrollAnimations/ScrollAnimations";
 import Header from "@/components/Header/Header";
+import styles from "./page.module.css";
+
 export default function Home() {
   return (
     <ScrollAnimations>
       <Header />
-      <main>
+      <main className={styles.homePage}>
         <Hero />
         {/* <Hero2 /> */}
         <Expertise />
@@ -27,7 +29,7 @@ export default function Home() {
         <Services />
         <CraftStory />
         {/* <Materials />  */}
-        <ImageDrift />
+        {/* <ImageDrift /> */}
         <Projects />
         <FinalCta />
         <Footer />

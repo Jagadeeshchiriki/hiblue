@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import doorImage from "../../../public/images/home/door-banner02.webp";
-import doorRevealImage from "../../../public/images/home/04-service-design-build.jpg";
+import doorImage from "../../../public/images/home/interior_units1.jpg";
+import doorRevealImage from "../../../public/images/home/interior_units3.jpg";
 import interiorImage from "../../../public/images/home/interior_1.jpg";
 import interiorRevealImage from "../../../public/images/home/interior_2.jpg";
-import kitchenImage from "../../../public/images/home/artisan-1.webp";
-import kitchenRevealImage from "../../../public/images/home/04-service-modular-kitchen.png";
-import wardrobeImage from "../../../public/images/home/Wardrobe.webp";
-import wardrobeRevealImage from "../../../public/images/home/Wardrobe2.webp";
+import kitchenImage from "../../../public/images/home/kitchen2.jpg";
+import kitchenRevealImage from "../../../public/images/home/kitchen4.jpg";
+import wardrobeImage from "../../../public/images/home/wardrobe3.jpg";
+import wardrobeRevealImage from "../../../public/images/home/wardrobe4.jpg";
 import styles from "./Services.module.css";
 
 const services = [
@@ -27,7 +27,7 @@ const services = [
     images: [wardrobeImage, wardrobeRevealImage],
   },
   {
-    name: "Doors",
+    name: "Interior Units",
     description: "The first detail that sets the tone for your home.",
     images: [doorImage, doorRevealImage],
   },
@@ -46,7 +46,7 @@ export default function Services() {
           <h2 id="services-title">
             <span className={styles.titleLine}>Designed Around</span>
             <span className={styles.titleLine}>
-              The Way <em>You Live.</em>
+              The Way You Live.
             </span>
           </h2>
           <p className={styles.intro}>

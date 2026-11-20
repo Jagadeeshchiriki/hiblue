@@ -70,7 +70,7 @@
 
 .content h1 {
   max-width: none;
-  font-family: "adelora", "adelora Fallback", Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: clamp(2rem, 5vw, 5rem);
   font-weight: 400;
   line-height: 1.08;

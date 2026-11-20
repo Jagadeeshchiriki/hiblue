@@ -27,6 +27,16 @@ export default function ScrollAnimations({ children }) {
     gsap.ticker.add(updateLenis);
     gsap.ticker.lagSmoothing(0);
 
+    const handleMenuChange = (event) => {
+      if (event.detail?.open) {
+        lenis.stop();
+      } else {
+        lenis.start();
+      }
+    };
+
+    window.addEventListener("site-menu-change", handleMenuChange);
+
     const context = gsap.context(() => {
       const hero = document.querySelector("[data-hero]");
       const isMobile = window.matchMedia("(max-width: 767px)").matches;
@@ -628,6 +638,7 @@ export default function ScrollAnimations({ children }) {
 
     return () => {
       removeHeroVideoListener();
+      window.removeEventListener("site-menu-change", handleMenuChange);
       context.revert();
       gsap.ticker.remove(updateLenis);
       lenis.destroy();

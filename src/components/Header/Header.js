@@ -31,6 +31,7 @@ const links = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [activeLink, setActiveLink] = useState(null);
   const menuId = useId();
   const menuPreview = useRef(null);
@@ -49,7 +50,17 @@ export default function Header() {
   };
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
+
+    document.body.style.overflow = open ? "hidden" : previousBodyOverflow;
+    document.documentElement.style.overflow = open
+      ? "hidden"
+      : previousHtmlOverflow;
+    window.dispatchEvent(
+      new CustomEvent("site-menu-change", { detail: { open } }),
+    );
+
     const onKeyDown = (event) => {
       if (event.key !== "Escape") return;
       setOpen(false);
@@ -57,14 +68,55 @@ export default function Header() {
     };
     window.addEventListener("keydown", onKeyDown);
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousHtmlOverflow;
       window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+    let frame = null;
+
+    const updateHeader = () => {
+      const currentScrollY = window.scrollY;
+      const distance = currentScrollY - lastScrollY;
+
+      if (!open) {
+        if (currentScrollY <= 16 || distance < -6) {
+          setHidden(false);
+        } else if (distance > 6) {
+          setHidden(true);
+        }
+      }
+
+      if (Math.abs(distance) > 6 || currentScrollY <= 16) {
+        lastScrollY = currentScrollY;
+      }
+
+      frame = null;
+    };
+
+    const onScroll = () => {
+      if (frame !== null) return;
+      frame = window.requestAnimationFrame(updateHeader);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame !== null) window.cancelAnimationFrame(frame);
     };
   }, [open]);
 
   return (
     <>
-      <div className={styles.logoMark} aria-hidden="true" data-site-logo>
+      <div
+        className={`${styles.logoMark} ${hidden ? styles.hidden : ""}`}
+        aria-hidden="true"
+        data-site-logo
+      >
         <Image
           src={logoMark}
           alt=""
@@ -73,7 +125,9 @@ export default function Header() {
         />
       </div>
       <header
-        className={`${styles.header} ${open ? styles.menuOpen : ""}`}
+        className={`${styles.header} ${open ? styles.menuOpen : ""} ${
+          hidden ? styles.hidden : ""
+        }`}
         data-site-header
       >
         <Link
@@ -102,6 +156,7 @@ export default function Header() {
           aria-expanded={open}
           aria-controls={menuId}
           onClick={() => {
+            setHidden(false);
             if (open) setActiveLink(null);
             setOpen((value) => !value);
           }}

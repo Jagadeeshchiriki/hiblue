@@ -1,30 +1,30 @@
 import Image from "next/image";
 import modularWorksImage from "../../../public/images/modular_works.png";
-import aluminiumImage from "../../../public/images/aluminum_modular1.png";
-import glassImage from "../../../public/images/inhouse_glass.png";
+import deliverImage from "../../../public/images/home/deliver.jpg";
+import designImage from "../../../public/images/home/design.jpg";
 import styles from "./Expertise.module.css";
 
 const expertise = [
   {
-    title: "Modular Works",
+    title: "Share Your Design",
     description:
-      "From precision cutting to seamless assembly, we manufacture modular furniture components with consistent quality, accuracy, and attention to detail.",
-    image: modularWorksImage,
+      "Send us your approved drawings, dimensions and finish selections. We review the details with your team before production begins.",
+    image: designImage,
     alt: "Worker processing white modular boards in the HIBLUE factory",
   },
   {
-    title: "Aluminium Profile Processing",
+    title: "Built to Your Specifications",
     description:
-      "Precision-cut aluminium profiles, processed for clean finishes, reliable fitting, and seamless integration into modern modular furniture systems.",
-    image: aluminiumImage,
+      "At our factory, we cut each panel to size and finish the edges to match the dimensions, materials and finishes in your drawings.",
+    image: modularWorksImage,
     alt: "Close-up view of precision aluminium extrusion profiles",
   },
   {
-    title: "In-House Glass Processing",
+    title: "Delivered to Your Site",
     description:
-      "From accurate measurements to carefully finished glass panels, our in-house processing helps deliver consistency, precision, and dependable quality.",
-    image: glassImage,
-    alt: "Glass panel being measured during in-house processing",
+      "We pack finished units to protect corners and surfaces, then coordinate delivery directly with your team on site.",
+    image: deliverImage,
+    alt: "Delivery truck transporting modular furniture units",
   },
 ];
 

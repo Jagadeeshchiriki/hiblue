@@ -12,7 +12,7 @@ export default function Trust() {
         <h2 id="trust-title">
           Good design
           <br />
-          is only the <em>beginning.</em>
+          is only the beginning.
         </h2>
       </div>
       <p>

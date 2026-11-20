@@ -1,17 +1,9 @@
-@font-face {
-  font-family: "adelora";
-  src: url("/fonts/adelora.otf") format("opentype");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
-}
-
 :root {
   --background: #f5f2eb;
   --foreground: #20211e;
   --font-sans: "Avenir Next", Avenir, "Helvetica Neue", Arial, sans-serif;
-  --font-serif:
-    adelora, "adelora Fallback", Georgia, "Times New Roman", serif;
+  --font-serif: "Roobert", Helvetica, Arial, sans-serif;
+  --font-josefin-sans: "Josefin Sans", Helvetica, Arial, sans-serif;
 }
 html {
   background: var(--background);

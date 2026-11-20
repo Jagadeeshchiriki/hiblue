@@ -12,9 +12,9 @@ export default function Philosophy() {
     >
       <div className={styles.copy} data-philosophy-copy>
         <h2 id="philosophy-title">
-          Engineered to Build.
+          Engineered to Build
           <br />
-          <em>Crafted to Last.</em>
+          Crafted to Last
         </h2>
         <p>
           From cutting and edge banding to assembly and finishing, our skilled

@@ -1,5 +1,12 @@
 import "./globals.css";
 import "lenis/dist/lenis.css";
+import { Josefin_Sans } from "next/font/google";
+
+const josefinSans = Josefin_Sans({
+  subsets: ["latin"],
+  variable: "--font-josefin-sans", 
+});
+
 export const metadata = {
   title: { default: "HiBlue Interiors", template: "%s | HiBlue" },
   description:
@@ -7,7 +14,11 @@ export const metadata = {
 };
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html
+      lang="en"
+      className={josefinSans.variable}
+      data-scroll-behavior="smooth"
+    >
       <body>{children}</body>
     </html>
   );

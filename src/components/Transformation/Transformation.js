@@ -1,6 +1,6 @@
 import Image from "next/image";
-import conceptImage from "../../../public/images/home/03-design-concept.png";
-import finishedImage from "../../../public/images/home/03-design-finished.png";
+import conceptImage from "../../../public/images/home/kitchen_wireframe.jpg";
+import finishedImage from "../../../public/images/home/kitchen1.jpg";
 import styles from "./Transformation.module.css";
 
 export default function Transformation() {
@@ -44,12 +44,12 @@ export default function Transformation() {
           <span data-transformation-copy-concept aria-hidden="true">
             From Lines
             <br />
-            To <em>Living Spaces.</em>
+            To Living Spaces.
           </span>
           <span data-transformation-copy-finished aria-hidden="true">
             Designed in Detail.
             <br />
-            <em>Crafted to Perfection.</em>
+            Crafted to Perfection.
           </span>
         </h2>
       </div>

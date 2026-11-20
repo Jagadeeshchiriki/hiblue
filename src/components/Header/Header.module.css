@@ -10,6 +10,7 @@
   padding: 1.75rem clamp(1.25rem, 4vw, 4.5rem);
   color: white;
   mix-blend-mode: difference;
+  transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .menuOpen {
@@ -36,6 +37,12 @@
   height: clamp(3rem, 4.6vw, 3.75rem);
   pointer-events: none;
   transform: translateY(-0.2rem);
+  transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hidden {
+  pointer-events: none;
+  transform: translateY(calc(-100% - 2rem));
 }
 
 .logoMark img {
@@ -296,6 +303,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .header,
+  .logoMark,
   .overlay,
   .menuButton span,
   .navLink,

@@ -24,14 +24,14 @@ export default function Hero() {
       <div className={styles.content} data-hero-content>
         <h1 id="hero-title" className={styles.title}>
           <span className={styles.titleStep} data-hero-title-first>
-            Your Vision.
+            Your Vision
             <br />
-            Our Craftsmanship.
+            Our Craftsmanship
           </span>
           <span className={styles.titleStep} data-hero-title-final>
-            Crafted to Your Design.
+            Crafted to Your Design
             <br />
-            Built to Last.
+            Built to Last
           </span>
         </h1>
       </div>

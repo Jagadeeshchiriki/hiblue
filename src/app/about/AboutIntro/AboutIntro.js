@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import forestImage from "../../../../public/images/about/Forest_Gallery.avif";
+import forestImage from "../../../../public/images/about/Forest_Gallery.webp";
 import truckImage from "../../../../public/images/about/truck2.png";
 import styles from "./AboutIntro.module.css";
 
@@ -71,7 +71,6 @@ export default function AboutIntro() {
           width={1536}
           height={570}
           sizes="100vw"
-          unoptimized
         />
         <div className={styles.road} />
         <div className={styles.van} ref={van}>
